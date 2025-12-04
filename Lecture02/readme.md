@@ -1,0 +1,1 @@
+https://www.notion.so/Lecture-02-Operator-if-else-loop-in-C-2bda9af81c988063a5f6e7e3b187de59
