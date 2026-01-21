@@ -71,4 +71,55 @@ int trapWater(vector<int>& arr) {
 
 
 }
+// Third Solution 
+int trapWater(vector<int>& arr) {
+	int n=arr.size();
+	// find the maximum element using 2 pointer
+	int start=0,end=n-1;
+	while(start<end){
+		if(arr[start]>arr[end]){
+			end--;
+		}
+		else{
+			start++;
+		}
+	}
+	int leftmax=arr[0],rightmax=arr[n-1],water=0;
+	for(int i=0;i<start;i++){
+		if(arr[i]<leftmax){
+			water+=leftmax-arr[i];
+		}
+		leftmax=max(leftmax,arr[i]);
+	}
+	for(int i=n-2;i>start;i--){
+		if(arr[i]<rightmax){
+			water+=rightmax-arr[i];
+		}
+		rightmax=max(rightmax,arr[i]);
+	}
+	return water;
+}
+
+// Fouth Method
+int trapWater(vector<int>& arr) {
+	int n=arr.size();
+	int start=0,end=n-1,leftmax=arr[0],rightmax=arr[n-1],water=0;
+	while(start<end){
+		if(arr[start]<arr[end]){
+			if(arr[start]<leftmax){
+				water+=leftmax-arr[start];
+			}
+			leftmax=max(leftmax,arr[start]);
+			start++;
+		}
+		else{
+			if(arr[end]<rightmax){
+				water+=rightmax-arr[end];
+			}
+			rightmax=max(rightmax,arr[end]);
+			end--;
+		}
+	}
+	return water;
+}
 
