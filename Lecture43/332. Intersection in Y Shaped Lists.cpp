@@ -25,7 +25,7 @@ Node* intersectPoint(Node* head1, Node* head2) {
 		}
 	}
 
-
+	if(slow!=fast) return NULL; // handel when both are not connected with a common node in that case we return the NULL
 	slow = head1;
    
 //    common point pe meet karenge
